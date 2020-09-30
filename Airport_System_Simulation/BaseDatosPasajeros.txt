@@ -1,0 +1,10 @@
+1722412739 Emilia_Jacome 3456 Estudiante A7
+0301189130 Marcela_Iñiguez 2085 Adulto E30
+1726885815 Francesca_Jacome 2171 Nino B12
+1701714709 Aurora_Montalvo 7839 Adulto_Mayor C15
+1706551049 Jorge_Jacome 3978 Adulto F24
+1700205535 Anibal_Paredes 3645 Adulto_Mayor D28
+1701714709 Carlos_Ledezma 3456 Estudiante A6
+1564739287 Monica_Trueba 3456 Estudiante A8
+1076547890 Stephania_Jacome 2085 Adulto E31
+1567843298 Berenice_Palacios 3627 Estudiante C2
