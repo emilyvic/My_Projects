@@ -1,0 +1,56 @@
+contador, load cont /cargar el AC con el valor del contador
+	subt one /restarle uno 
+    store cont /actualizar el valor de contador
+    skipcond 400 /si el AC es igual a 0, ir a linea 6
+    jump asignar /mientras el AC sea distinto de 0, continuar asignando valores
+    jump contador2 /saltar a contador2, para inicializar la suma
+    
+asignar, input /para recibir datos del usuario
+	storeI dir /guardar indirectamente en la direccion de memoria 
+    output  /desplegar en pantalla el número que digitó
+    load dir /cargar el valor de la direccion
+    add one /sumarle 1
+    store dir /volver a guardar en la direccion
+    jump contador /ir a contador
+
+contador2, load cont2 /cargar a AC el valor del contador2
+	subt one /restarle uno
+    store cont2 /actualizar el valor en la posicion de memoria de cont2
+    skipcond 400 /si el AC es igual a 0, ir a linea 21
+    jump suma /mientras el AC sea distinto de 0, continuar sumando valores
+    jump resta /ir a la division
+    
+suma, load sum  /cargar el AC con el valor de sum
+	addi dir2 /añadir indirectamente el valor de la direccion 2 para recorrer la posicion de memoria
+    store sum /actualizar el valor en la posicion de memoria de sum
+    load dir2 /cargar el valor de la direccion 2 en el AC
+    add one /sumarle 1
+    store dir2 /actualizar el valor en la posicion de memoria de dir2
+    jump contador2 /saltar incondicionalmente al contador 2 para continuar con la suma
+
+/division
+resta, load sum / cargarle al AC el valor de sum
+	subt cantR /restarle la cantidad de valores que hay
+    store sum /actualizar el valor de sum
+    skipcond 800 /si el AC es un número positivo, continuar en linea 37
+    jump imprimir /si el AC es igual o menor a 0, procede a imprimir el resultado
+    jump promCont /mientras AC sea positivo, entonces actualizar el contador del promedio 
+    
+promCont, load prom /cargar a AC el valor de prom
+	add one /incrementarle en 1
+    store prom /actualizar el valor de prom
+    jump resta /saltar incondicionalmente a la division
+    
+imprimir, load prom /imprimir el resultado final del promedio
+	output /desplegar en pantalla
+    halt //terminar el programa
+
+/delaración de variables
+cont, dec 6 /contador para asignar valores
+cont2, dec 6 /contador para la suma de valores
+cantR, dec 5 /cantidad de elementos para la resta
+one, dec 1 /constante de valor 1
+prom, dec 0 /valor del promedio
+sum, dec 0 /suma de valores
+dir, hex 070 /direccion de memoria donde se va a almacenar y recoger los valores
+dir2, hex 070 /direccion de memoria donde se va a almacenar la suma
